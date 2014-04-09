@@ -1,0 +1,14 @@
+package biblioj_jee
+
+class Livre {
+	String titre
+	int nombreExemplaires
+	int nombreExemplairesDisponibles
+	Typedoc type
+	static hasmany = [auteur : Auteur, reservation : Reservation]
+	
+    static constraints = {
+		titre nullable : false , blank : false
+		type  nullable : true
+    }
+}
