@@ -7,6 +7,7 @@ class Livre {
 	Typedoc type
 	
 	static hasMany = [auteur : Auteur, reservation : Reservation]
+	static belongsTo = [Reservation]
 	
     static constraints = {
 		titre nullable : false , blank : false

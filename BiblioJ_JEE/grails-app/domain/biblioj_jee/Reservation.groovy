@@ -5,7 +5,6 @@ class Reservation {
 	Date reservation
 	
 	static hasMany = [livre : Livre]
-	static belongsTo = [Livre]
 	
     static constraints = {
 		code nullable : false 
