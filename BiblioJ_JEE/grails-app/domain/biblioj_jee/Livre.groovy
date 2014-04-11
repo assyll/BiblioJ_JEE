@@ -12,5 +12,7 @@ class Livre {
     static constraints = {
 		titre nullable : false , blank : false
 		type  nullable : true
+		nombreExemplaires nullable : false
+		nombreExemplairesDisponibles nullable : false, max : nombreExemplaires
     }
 }
