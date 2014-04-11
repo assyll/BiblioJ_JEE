@@ -1,10 +1,14 @@
 package biblioj_jee
 
 class Auteur {
-	String nom,prenom
-	static hasmany = [livre : Livre]
+	String nom
+	String prenom
+	
+	static hasMany = [livre : Livre]
+	static belongsTo=[Livre]
+	
     static constraints = {
-		nom nullable : true , blank : false
+		nom nullable : false , blank : false
 		prenom nullable : true , blank : false
     }
 }

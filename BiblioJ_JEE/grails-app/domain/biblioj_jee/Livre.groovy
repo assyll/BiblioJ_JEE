@@ -5,7 +5,8 @@ class Livre {
 	int nombreExemplaires
 	int nombreExemplairesDisponibles
 	Typedoc type
-	static hasmany = [auteur : Auteur, reservation : Reservation]
+	
+	static hasMany = [auteur : Auteur, reservation : Reservation]
 	
     static constraints = {
 		titre nullable : false , blank : false
