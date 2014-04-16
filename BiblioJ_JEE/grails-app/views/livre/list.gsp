@@ -23,9 +23,20 @@
 			<fieldset class="form">
 				<g:form action="list" method="GET">
 					<div class="fieldcontain">
-						<label for="query">Recherche de livre :</label>
-						<g:textField name="query" value="${params.query}"/>
+						<label for="queryTitre"> Titre :</label>
+						<g:textField name="queryTitre" value="${params.queryTitre}"/>
 					</div>
+					<div class="fieldcontain">
+						<label for="queryType"> Type :</label>
+						<g:textField name="queryType" value="${params.queryType}"/>
+					</div>
+					<div class="fieldcontain">
+						<label for="queryAuteur"> Auteur :</label>
+						<g:textField name="queryAuteur" value="${params.queryAuteur}"/>
+					</div>
+					<g:form action="list" >
+					<g:submitButton name="submit" value="OK" />
+					</g:form>
 				</g:form>
 			</fieldset>
 			<table>
@@ -34,7 +45,7 @@
 					
 						<g:sortableColumn property="titre" title="${message(code: 'livre.titre.label', default: 'Titre')}" />
 					
-						<th><g:message code="livre.type.label" default="Type" /></th>
+						<th><g:message code="livre.type.intitule" default="Type" /></th>
 					
 						<g:sortableColumn property="nombreExemplaires" title="${message(code: 'livre.nombreExemplaires.label', default: 'Nombre Exemplaires')}" />
 					

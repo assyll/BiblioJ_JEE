@@ -6,7 +6,7 @@ class BootStrap {
 	def init = { servletContext ->
 		
 		Typedoc type1 = new Typedoc(
-			intitule:'test')
+			intitule:'roman')
 		type1.save()
 		
 		Typedoc type2 = new Typedoc(
@@ -24,7 +24,7 @@ class BootStrap {
 			titre: 'Germinal',
 			nombreExemplaires: 2,
 			nombreExemplairesDisponibles: 2,
-			type: type1)
+			type: type2)
 		livre2.save()
 	}
 	
