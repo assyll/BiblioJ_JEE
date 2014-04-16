@@ -12,7 +12,16 @@ class LivreController {
 
     def list(Integer max) {
         params.max = 5
-        [livreInstanceList: Livre.list(params), livreInstanceTotal: Livre.count()]
+		def bookList = Livre.createCriteria().list(params) {
+			if ( params.query ) {
+				ilike("titre", "%${params.query}%")
+				if (params.type)
+				{
+					ilike("intitule","%${params.query}%")				}
+			
+			}
+		}
+        [livreInstanceList: bookList, livreInstanceTotal: bookList.totalCount]
     }
 
     def create() {

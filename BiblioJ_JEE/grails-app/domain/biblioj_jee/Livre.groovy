@@ -2,8 +2,8 @@ package biblioj_jee
 
 class Livre {
 	String titre
-	int nombreExemplaires
-	int nombreExemplairesDisponibles
+	Integer nombreExemplaires
+	Integer nombreExemplairesDisponibles
 	Typedoc type
 	
 	static hasMany = [auteur : Auteur, reservation : Reservation]
