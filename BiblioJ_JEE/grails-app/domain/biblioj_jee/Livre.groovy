@@ -1,6 +1,6 @@
 package biblioj_jee
 
-class Livre extends com.metasieve.shoppingcart.Shoppable{
+class Livre {
 	String titre
 	Integer nombreExemplaires
 	Integer nombreExemplairesDisponibles

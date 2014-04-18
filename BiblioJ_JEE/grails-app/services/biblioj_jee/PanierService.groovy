@@ -2,9 +2,6 @@ package biblioj_jee
 
 import java.util.Set;
 
-import com.metasieve.shoppingcart.IShoppable;
-import com.metasieve.shoppingcart.ShoppingCart;
-
 class PanierService {
 
 	boolean transactional = true
@@ -31,9 +28,6 @@ class PanierService {
 		if (!panier) {
 			return
 		}
-		
-		println getLivres()
-		println getQt()
 		
 		panier.addToPanier(livre,quantite)
 		panier.save(flush: true)

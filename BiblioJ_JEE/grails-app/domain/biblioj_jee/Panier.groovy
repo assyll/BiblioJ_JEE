@@ -13,7 +13,7 @@ class Panier {
     }
 	
 	Panier(){
-		quantites=[-1];
+		quantites=[];
 	}
 	
 	void addToPanier(Livre livre, int quantite){
