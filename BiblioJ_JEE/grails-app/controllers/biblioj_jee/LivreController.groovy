@@ -14,24 +14,23 @@ class LivreController {
 		params.max = 5
 		def bookList = Livre.createCriteria().list(params) {
 			and{
-				if ( params.queryTitre ) {
+				if (params.queryTitre) {
 					ilike("titre", "%${params.queryTitre}%")
 				}
 
-				if ( params.queryType) {
+				if (params.queryType) {
 					type {
 						ilike("intitule","%${params.queryType}%")
 					}
 				}
 
-				if (params.queryAuteur  ) {
+				if (params.queryAuteur) {
 					auteur {
 						ilike("nom","%${params.queryAuteur}%")
 					}
 				}
 			}
 		}
-		println bookList
 
 		[livreInstanceList: bookList, livreInstanceTotal: bookList.totalCount]
 	}
@@ -82,6 +81,30 @@ class LivreController {
 		[livreInstance: livreInstance]
 	}
 
+	def panierService
+	
+	def addToPanier(Long id, int nbExemplaires) {
+		def livreInstance = Livre.get(id)
+		if(livreInstance?.nombreExemplairesDisponibles!=0 && nbExemplaires!=0){
+			panierService.addToPanier(livreInstance,nbExemplaires)
+			redirect(action: "show", id: livreInstance.id)
+		}
+		else {
+			redirect(action: "show", id: livreInstance.id)
+		}
+	}
+	
+	def removeFromPanier(Long id, int nbExemplaires) {
+		def livreInstance = Livre.get(id)
+		if (!livreInstance) {
+			return;
+		}
+		else {
+			panierService.removeFromPanier(livreInstance,nbExemplaires)
+			redirect(action: "show", id: livreInstance.id)
+		}
+	}
+	
 	def update(Long id, Long version) {
 		def livreInstance = Livre.get(id)
 		if (!livreInstance) {
