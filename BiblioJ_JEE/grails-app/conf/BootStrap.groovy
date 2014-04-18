@@ -8,11 +8,11 @@ class BootStrap {
 		
 		Auteur auteur1 = new Auteur(
 			nom: 'Stephen',
-			prenom: 'King')
+			prenom: 'King').save()
 		
 		Auteur auteur2 = new Auteur(
 			nom: 'Crichton',
-			prenom: 'Michael')
+			prenom: 'Michael').save()
 		
 		Typedoc type1 = new Typedoc(
 			intitule:'roman')
@@ -43,9 +43,9 @@ class BootStrap {
 			type: type1)
 		livre3.save()
 		
-		auteur1.addToLivre(livre3)
-		auteur1.addToLivre(livre2);
-		auteur2.addToLivre(livre2)
+		livre3.addToAuteur(auteur1)
+		livre2.addToAuteur(auteur1)
+		livre2.addToAuteur(auteur2)
 	}
 	
 	def destroy = {
