@@ -105,6 +105,12 @@ class LivreController {
 		}
 	}
 	
+	def viderPanier(Long id) {
+		def livreInstance = Livre.get(id)
+		panierService.viderPanier()
+		redirect(action: "show", id: livreInstance.id)
+	}
+	
 	def update(Long id, Long version) {
 		def livreInstance = Livre.get(id)
 		if (!livreInstance) {

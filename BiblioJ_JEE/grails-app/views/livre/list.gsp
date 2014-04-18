@@ -66,7 +66,7 @@
 							<g:each in="${livreInstance.auteur}" var="auteurInstance">
 								
 								<li>
-								${fieldValue(bean: auteurInstance, field: "nom")}
+								${auteurInstance.toString()}
 								</li>							
 							</g:each>
 							</ul>

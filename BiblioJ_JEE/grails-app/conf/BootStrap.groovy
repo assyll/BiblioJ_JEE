@@ -7,41 +7,36 @@ class BootStrap {
 	def init = { servletContext ->
 		
 		Auteur auteur1 = new Auteur(
-			nom: 'Stephen',
-			prenom: 'King').save()
+			nom: 'King',
+			prenom: 'Stephen').save()
 		
 		Auteur auteur2 = new Auteur(
 			nom: 'Crichton',
 			prenom: 'Michael').save()
 		
 		Typedoc type1 = new Typedoc(
-			intitule:'roman')
-		type1.save()
+			intitule:'roman').save()
 		
 		Typedoc type2 = new Typedoc(
-			intitule:'revue')
-		type2.save()
+			intitule:'revue').save()
 		
 		Livre livre1 = new Livre(
 			titre: 'Les dents de la mer',
 			nombreExemplaires: 2,
 			nombreExemplairesDisponibles: 2,
-			type: type2)
-		livre1.save()
+			type: type2).save()
 		
 		Livre livre2 = new Livre(
 			titre: 'Germinal',
 			nombreExemplaires: 2,
 			nombreExemplairesDisponibles: 2,
-			type: type2)
-		livre2.save()
+			type: type2).save()
 		
 		Livre livre3 = new Livre(
 			titre: 'Les dents de la mer',
 			nombreExemplaires: 5,
 			nombreExemplairesDisponibles: 5,
-			type: type1)
-		livre3.save()
+			type: type1).save()
 		
 		livre3.addToAuteur(auteur1)
 		livre2.addToAuteur(auteur1)
