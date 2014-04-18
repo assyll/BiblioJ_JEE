@@ -29,27 +29,27 @@
 					<div class="fieldcontain">
 						<label for="queryType"> Type :</label>
 						<g:textField name="queryType" value="${params.queryType}"/>
+						&nbsp&nbsp&nbsp&nbsp
+						<g:form action="list">
+							<g:submitButton name="submit" value="Rechercher"/>
+						</g:form>
 					</div>
 					<div class="fieldcontain">
 						<label for="queryAuteur"> Auteur :</label>
 						<g:textField name="queryAuteur" value="${params.queryAuteur}"/>
 					</div>
-					<g:form action="list" >
-					<g:submitButton name="submit" value="OK" />
-					</g:form>
 				</g:form>
 			</fieldset>
 			<table>
 				<thead>
 					<tr>
-					
 						<g:sortableColumn property="titre" title="${message(code: 'livre.titre.label', default: 'Titre')}" />
 					
 						<g:sortableColumn property="type.intitule" title="${message(code: 'livre.type.intitule', default: 'Type')}" />
 						
 						<g:sortableColumn property="nombreExemplairesDisponibles" title="${message(code: 'livre.nombreExemplairesDisponibles.label', default: 'Nombre Exemplaires Disponibles')}" />
 					 
-					 	<g:sortableColumn property="auteur" title="${message(code: 'livre.auteur', default: 'Auteurs')}" />
+					 	<th>Auteurs</th>
 					</tr>
 				</thead>
 				<tbody>
