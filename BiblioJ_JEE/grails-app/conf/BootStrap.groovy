@@ -26,7 +26,7 @@ class BootStrap {
 			titre: 'Les dents de la mer',
 			nombreExemplaires: 2,
 			nombreExemplairesDisponibles: 2,
-			type: type1)
+			type: type2)
 		livre1.save()
 		
 		Livre livre2 = new Livre(
@@ -40,7 +40,7 @@ class BootStrap {
 			titre: 'Les dents de la mer',
 			nombreExemplaires: 5,
 			nombreExemplairesDisponibles: 5,
-			type: type2)
+			type: type1)
 		livre3.save()
 		
 		auteur1.addToLivre(livre3)
