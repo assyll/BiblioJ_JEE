@@ -3,8 +3,6 @@ package biblioj_jee
 import java.util.Set;
 
 class PanierService {
-
-	boolean transactional = true
 	
     def creerPanier() {
 		def panier = new Panier()
@@ -53,17 +51,6 @@ class PanierService {
 		}
 		else {
 			return panier.livres
-		}
-	}
-	
-	def getQt() {
-		def panier = getPanier()
-		
-		if (!panier) {
-			return
-		}
-		else {
-			return panier.quantites
 		}
 	}
 	

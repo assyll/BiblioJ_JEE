@@ -15,4 +15,9 @@ class Livre {
 		nombreExemplaires nullable : false
 		nombreExemplairesDisponibles nullable : false
     }
+	
+	String toString() {
+		titre
+	}
+	
 }

@@ -1,55 +1,52 @@
 package biblioj_jee
 
-import java.lang.reflect.Array
-
 
 class Panier {
-
-	List<Integer> quantites
 	
-	static hasMany = [livres : Livre]
+	static hasMany = [livres : LivrePanier]
 	
     static constraints = {
     }
-	
-	Panier(){
-		quantites=[];
-	}
-	
+		
 	void addToPanier(Livre livre, int quantite){
-		int indexCourant=livres.findIndexOf { courant ->
-				if (courant.id == livre.id) {
+		LivrePanier courant = livres.find {courant ->
+				if (courant.livre.id == livre.id) {
 					return true
 				}
 				return false
 			}
 		
-		if (indexCourant<0) {
-			this.addToLivres(livre)
-			quantites.add(quantite)
+		if (!courant) {
+			this.addToLivres(new LivrePanier(livre:livre, quantite:quantite))
 		}
 		else {
-			quantites.add(indexCourant, quantites.get(indexCourant)+quantite)
+			if (courant.quantite+quantite>livre.nombreExemplairesDisponibles) {
+				courant.quantite=livre.nombreExemplairesDisponibles
+			}
+			else {
+				courant.quantite+=quantite
+			}
+			courant.save(flush:true)
 		}
 	}
 	
 	void removeFromPanier(Livre livre, int quantite){
-		int indexCourant=livres.findIndexOf { courant ->
-			if (courant.id == livre.id) {
-				return true
+		LivrePanier courant = livres.find {courant ->
+				if (courant.livre.id == livre.id) {
+					return true
+				}
+				return false
 			}
-			return false
-		}
 	
-		if (indexCourant>0) {
-			if(quantites.get(indexCourant)<=quantite){
-				quantites.remove(indexCourant);
-				this.removeFromLivres(livre)
-			}
-			else{
-				quantites.add(indexCourant, quantites.get(indexCourant)-quantite)
-			}
+		if (!courant) {
+			return
+		}
+		else if(courant.quantite<=quantite){
+			this.removeFromLivres(courant);
+		}
+		else{
+			courant.quantite-=quantite
+			courant.save(flush:true)
 		}
 	}
-	
 }

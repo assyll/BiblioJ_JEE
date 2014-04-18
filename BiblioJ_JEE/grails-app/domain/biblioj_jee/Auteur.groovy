@@ -12,6 +12,6 @@ class Auteur {
     }
 	
 	String toString(){
-		nom+" "+prenom
+		prenom + " " + nom
 	}
 }
