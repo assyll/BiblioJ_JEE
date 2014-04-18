@@ -18,14 +18,13 @@ class LivreController {
 					ilike("titre", "%${params.queryTitre}%")
 				}
 
-				if ( params.queryType && params.type ) {
+				if ( params.queryType) {
 					type {
-
 						ilike("intitule","%${params.queryType}%")
 					}
 				}
 
-				if (params.queryAuteur && params.auteur ) {
+				if (params.queryAuteur  ) {
 					auteur {
 						ilike("nom","%${params.queryAuteur}%")
 					}

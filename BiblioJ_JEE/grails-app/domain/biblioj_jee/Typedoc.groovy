@@ -6,4 +6,8 @@ class Typedoc {
     static constraints = {
 		intitule blank : false, nullable : false
     }
+	
+	String toString(){
+		intitule
+	}
 }

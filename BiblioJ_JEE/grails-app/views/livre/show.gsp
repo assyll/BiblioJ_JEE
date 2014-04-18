@@ -34,9 +34,10 @@
 			
 				<g:if test="${livreInstance?.type}">
 				<li class="fieldcontain">
-					<span id="type-label" class="property-label"><g:message code="livre.type.label" default="Type" /></span>
+					<span id="type-label" class="property-label"><g:message code="livre.type.intitule.label" default="Type" /></span>
 					
-						<span class="property-value" aria-labelledby="type-label"><g:link controller="typedoc" action="show" id="${livreInstance?.type?.id}">${livreInstance?.type?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="type-label"><g:link controller="typedoc" acti
+						on="show" id="${livreInstance?.type?.intitule.label}"></g:link></span>
 					
 				</li>
 				</g:if>

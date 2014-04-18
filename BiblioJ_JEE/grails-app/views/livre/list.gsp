@@ -45,12 +45,11 @@
 					
 						<g:sortableColumn property="titre" title="${message(code: 'livre.titre.label', default: 'Titre')}" />
 					
-						<th><g:message code="livre.type.intitule" default="Type" /></th>
-					
-						<g:sortableColumn property="nombreExemplaires" title="${message(code: 'livre.nombreExemplaires.label', default: 'Nombre Exemplaires')}" />
-					
+						<g:sortableColumn property="type.intitule" title="${message(code: 'livre.type.intitule', default: 'Type')}" />
+						
 						<g:sortableColumn property="nombreExemplairesDisponibles" title="${message(code: 'livre.nombreExemplairesDisponibles.label', default: 'Nombre Exemplaires Disponibles')}" />
-					
+					 
+					 	<g:sortableColumn property="auteur" title="${message(code: 'livre.auteur', default: 'Auteurs')}" />
 					</tr>
 				</thead>
 				<tbody>
@@ -61,10 +60,17 @@
 					
 						<td>${fieldValue(bean: livreInstance, field: "type")}</td>
 					
-						<td>${fieldValue(bean: livreInstance, field: "nombreExemplaires")}</td>
-					
 						<td>${fieldValue(bean: livreInstance, field: "nombreExemplairesDisponibles")}</td>
-					
+						
+						<td><ul>
+							<g:each in="${livreInstance.auteur}" var="auteurInstance">
+								
+								<li>
+								${fieldValue(bean: auteurInstance, field: "nom")}
+								</li>							
+							</g:each>
+							</ul>
+					</td>
 					</tr>
 				</g:each>
 				</tbody>
