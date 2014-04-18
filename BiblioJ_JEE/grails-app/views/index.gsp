@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
+		<title>Projet BiblioJ_JEE</title>
 		<style type="text/css" media="screen">
 			#status {
 				background-color: #eee;
@@ -47,7 +47,7 @@
 			h2 {
 				margin-top: 1em;
 				margin-bottom: 0.3em;
-				font-size: 1em;
+				font-size: 1.5em;
 			}
 
 			p {
@@ -103,17 +103,11 @@
 			</ul>
 		</div>
 		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
-
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
+			<div id="controller-list" role="navigation" style="margin-left:100px ; margin-top:200px">
+				<h2 style="margin-bottom:25px"><strong>Fonctionnalités disponibles : </strong></h2>
 				<ul>
 					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
+						<h3 class="controller" style="margin-left:120px ; margin-top:15px"><g:link controller="${c.logicalPropertyName}">${c.toString().substring(c.toString().indexOf('>')+1)}</g:link></h3>
 					</g:each>
 				</ul>
 			</div>

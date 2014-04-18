@@ -18,11 +18,25 @@
 		<r:layoutResources />
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><a href="http://grails.org"><img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/></a></div>
+		<div id="grailsLogo" role="banner" >
+			<a href="http://grails.org">
+				<img src="${resource(dir: 'images', file: 'grails_logo.png')}" alt="Grails"/>
+			</a>
+		</div>
+		<div align=center style="margin-bottom:15px">
+			<h1><strong>BIBLIOJ_JEE</strong></h1>
+		</div>
 		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+		<div class="footer" role="contentinfo">
+			<h1>
+				<strong>Assyl Louahadj ; Victor Lafon</strong>----------------------------------------------------------------------------------Master 1 DL 2013-2014
+			</h1>
+		</div>
+		<div id="spinner" class="spinner" style="display:none;">
+			<g:message code="spinner.alt" default="Loading&hellip;"/>
+		</div>
 		<g:javascript library="application"/>
+		
 		<r:layoutResources />
 	</body>
 </html>
