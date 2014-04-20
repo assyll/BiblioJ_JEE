@@ -174,4 +174,20 @@ class LivreController {
 			redirect(action: "show", id: id)
 		}
 	}
+	
+	def updatePanier(Long id) {
+		def livreInstance = Livre.get(id)
+		if(params.oldValue && params.value && params.oldValue!=params.value) {
+			println "Coucou"
+			panierService.removeFromPanier(livreInstance,params.oldValue-params.value)
+		}
+		redirect(action: "show", id: livreInstance.id)
+	}
+	
+	def removeAll(Long id) {
+		def livreInstance = Livre.get(id)
+		panierService.removeFromPanier(livreInstance,livreInstance.nombreExemplairesDisponibles)
+		redirect(action: "show", id: livreInstance.id)
+	}
+	
 }
