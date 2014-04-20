@@ -1,6 +1,6 @@
-/grails
-/org
 /biblioj_jee
-/com
 /dbdoc
-/testShoppingCart
+/grails
+/hibernate
+/messages.properties
+/org
