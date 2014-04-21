@@ -6,7 +6,7 @@ class BootStrap {
 	
 	def init = { servletContext ->
 		
-		Auteur auteur1 = new Auteur(
+		/*Auteur auteur1 = new Auteur(
 			nom: 'King',
 			prenom: 'Stephen').save()
 		
@@ -40,7 +40,7 @@ class BootStrap {
 		
 		livre3.addToAuteur(auteur1)
 		livre2.addToAuteur(auteur1)
-		livre2.addToAuteur(auteur2)
+		livre2.addToAuteur(auteur2)*/
 	}
 	
 	def destroy = {
