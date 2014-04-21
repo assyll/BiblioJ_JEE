@@ -4,12 +4,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="panier">
 		<g:set var="entityName" value="${message(code: 'panier.label', default: 'Panier')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
+	
 	</head>
 	<body>
-		<div id="show-panier" class="content scaffold-show" role="main" style="margin-right:15px ; margin-top:65px ; border:3px outset black ; padding:0 0 5px 0 ; border-radius:10px">
+		<div id="show-panier" class="content scaffold-show">
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -49,8 +50,8 @@
 			<div align="center">
 				<g:form controller="livre">
 					<g:hiddenField name="id" value="${livreInstance?.id}" />
-					<g:actionSubmit style="margin-left:35px" action="update" value="${message(code: 'default.button.reserver.label', default: 'Réserver')}" />
-					<g:actionSubmit style="margin-left:35px" action="viderPanier" value="${message(code: 'default.button.vider.label', default: 'Vider le Panier')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Voulez-vous vraiment vider votre panier?')}');" />
+					<g:actionSubmit style="margin-left:20px" action="update" value="${message(code: 'default.button.reserver.label', default: 'Réserver')}" />
+					<g:actionSubmit style="margin-left:20px" action="viderPanier" value="${message(code: 'default.button.vider.label', default: 'Vider le Panier')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Voulez-vous vraiment vider votre panier?')}');" />
 				</g:form>
 			</div>
 		</div>
