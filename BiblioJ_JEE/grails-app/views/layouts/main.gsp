@@ -26,10 +26,6 @@
 		<div align=center style="margin-bottom:15px">
 			<h1><strong>BIBLIOJ_JEE</strong></h1>
 		</div>
-		
-		<div align=left style="z-index:1; position:relative; width:250px; height:200px; border:solid 1px black; background-color:lightgray;">
-			<g:applyLayout name="panier"/>
-		</div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo">
 			<h1>

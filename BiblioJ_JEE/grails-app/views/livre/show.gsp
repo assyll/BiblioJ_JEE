@@ -21,6 +21,7 @@
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
+			<g:render template="panier"/>
 			<ol class="property-list livre">
 			
 				<g:if test="${livreInstance?.titre}">

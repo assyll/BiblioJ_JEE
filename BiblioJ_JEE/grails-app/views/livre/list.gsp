@@ -29,6 +29,7 @@
 					<div class="fieldcontain">
 						<label for="queryType"> Type :</label>
 						<g:textField name="queryType" value="${params.queryType}"/>
+						&nbsp&nbsp&nbsp&nbsp
 						<g:form action="list">
 							<g:submitButton name="submit" value="Rechercher"/>
 						</g:form>
