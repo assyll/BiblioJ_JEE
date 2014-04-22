@@ -184,7 +184,6 @@ class LivreController {
 	}
 	
 	def removeAll(Long id) {
-		println "Coucou"
 		def livreInstance = Livre.get(id)
 		panierService.removeFromPanier(livreInstance,livreInstance.nombreExemplairesDisponibles)
 		redirect(action: "show", id: livreInstance.id)
@@ -193,13 +192,14 @@ class LivreController {
 	def verifierPanier() {
 		boolean checked = panierService.verifierPanier()
 		if(checked) {
-			flash.message = "${message(code: 'default.blabla.message', default: 'blabla')}"
 			Reservation newReservation = new Reservation(reservation:new Date())
 			newReservation.setCode()
-			//newReservation.save(flush:true)
 			panierService.remplirReservation(newReservation)
 			panierService.viderPanier()
 			redirect(action: "show", controller: "reservation", id: newReservation.id)
+		}
+		else {
+			flash.message = "${message(code: 'default.not.found.message', default: 'Certains des livres du panier ne sont plus disponibles...Le panier a été mis à jour suivant les disponibilités.')}"
 		}
 	}
 }

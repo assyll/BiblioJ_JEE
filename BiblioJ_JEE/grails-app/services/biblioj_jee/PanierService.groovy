@@ -73,12 +73,14 @@ class PanierService {
 			}
 			else {
 				if(dispoCourant!=0){
-					livrePanier.livre.reserver(dispoCourant)
+					livrePanier.quantite=dispoCourant
+				}
+				else {
+					panier.removeFromPanier(livrePanier.livre,livrePanier.quantite)
 				}
 				check=false;
 			}
 		}
-		
 		check
 	}
 	
