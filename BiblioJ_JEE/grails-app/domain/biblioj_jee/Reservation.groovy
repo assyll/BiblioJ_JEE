@@ -1,8 +1,8 @@
 package biblioj_jee
 
 class Reservation {
-	long code
 	Date reservation
+	long code
 	
 	static hasMany = [livre : Livre]
 	static belongsTo = [Livre]
@@ -12,7 +12,7 @@ class Reservation {
     }
 	
 	void setCode(){
-		code=this.id
+		code=Reservation.count()+1
 	}
 	
 }

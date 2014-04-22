@@ -9,7 +9,7 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<div id="show-panier" class="content scaffold-show" role="main" style="margin-right:15px ; margin-top:65px ; border:3px outset black ; padding:0 0 5px 0 ; border-radius:10px">
+		<div id="show-panier" class="content scaffold-show" role="main" style="margin-top:10px ; border:3px outset black ; padding:0 0 5px 0 ; border-radius:10px ; overflow:hidden">
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -20,23 +20,18 @@
 						<g:each in="${Panier.first()?.livres}" var="livrePanier">
 							<tr>
 								<td>
-									${livrePanier.livre.toString()}
+									<g:link action="show" controller="livre" params="${[id:(livrePanier.livre.id)]}">
+										${livrePanier.livre.toString()}
+									</g:link>
 								</td>
 								<td>
 									<g:form controller="livre" action="updatePanier" method="post" params="${[id:(livrePanier.livre.id),oldValue:(livrePanier.quantite)]}">
 									
 									<g:select name="nbExemplairesPanier" from="${1..livrePanier.quantite}" value="${livrePanier.quantite}"/>
-									<g:submitButton name="miseAjours" value="mettreAjour" />
-						
+									<g:submitButton name="miseAjours" value="Mettre à Jour" />
+									<g:actionSubmit action="removeAll" controller="livre"
+										params="${[id:(livrePanier.livre.id)]}" value="Supprimer"/>
 									</g:form>
-								</td>
-								<td>
-									<g:remoteLink action="removeAll" controller="livre"
-										params="${[id:(livrePanier.livre.id)]}"
-										update="panier"
-										onComplete="Effect.Pulsate('panier', {pulses: 1, duration: 1.0});">
-										Supprimer
-									</g:remoteLink>
 								</td>
 							</tr>
 						</g:each>
@@ -47,7 +42,7 @@
 				<g:form controller="livre">
 					<g:hiddenField name="id" value="${livreInstance?.id}" />
 					<g:actionSubmit style="margin-left:35px" action="verifierPanier" value="${message(code: 'default.button.reserver.label', default: 'Réserver')}" />
-					<g:actionSubmit style="margin-left:35px" action="viderPanier" value="${message(code: 'default.button.vider.label', default: 'Vider le Panier')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Voulez-vous vraiment vider votre panier?')}');" />
+					<g:actionSubmit style="margin-left:35px" action="viderPanier" value="${message(code: 'default.button.vider.label', default: 'Vider le Panier')}" onclick="return confirm('${message(code: 'default.button.panier.confirm.message', default: 'Voulez-vous vraiment vider votre panier?')}');" />
 				</g:form>
 			</div>
 		</div>

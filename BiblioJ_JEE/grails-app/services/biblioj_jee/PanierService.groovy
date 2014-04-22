@@ -65,17 +65,15 @@ class PanierService {
 		def panier = getPanier()
 		boolean check=true;
 		int dispoCourant;
-		LivrePanier livreCourant;
 		
-		for(int i=0;i<panier.livres.size();i++) {
-			livreCourant=panier.livres[i]
-			dispoCourant=livreCourant.nombreExemplairesDisponibles;
-			if(livreCourant.quantite<=dispoCourant) {
-				livreCourant.livre.reserver(livreCourant.quantite)
+		for(livrePanier in panier.livres) {
+			dispoCourant=livrePanier.livre.nombreExemplairesDisponibles;
+			if(livrePanier.quantite<=dispoCourant) {
+				livrePanier.livre.reserver(livrePanier.quantite)
 			}
 			else {
 				if(dispoCourant!=0){
-					livreCourant.livre.reserver(dispoCourant)
+					livrePanier.livre.reserver(dispoCourant)
 				}
 				check=false;
 			}
@@ -87,12 +85,12 @@ class PanierService {
 	def remplirReservation(Reservation newReservation){
 		def panier = getPanier()
 		
-		for(int i=0;i<panier.livres.size();i++) {
-			for(int j=0;j<panier.livres[i].quantite;j++) {
-				newReservation.addToLivres(panier.livres[i].livre)
+		for(livrePanier in panier.livres) {
+			for(int j=0;j<livrePanier.quantite;j++) {
+				newReservation.addToLivre(livrePanier.livre)
 			}
 		}
 		
-		newReservation.save()
+		newReservation.save(flush:true)
 	}
 }
