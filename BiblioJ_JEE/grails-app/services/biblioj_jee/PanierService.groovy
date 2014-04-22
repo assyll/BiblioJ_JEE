@@ -60,4 +60,39 @@ class PanierService {
 		
 		panier.save()
 	}
+	
+	def verifierPanier() {
+		def panier = getPanier()
+		boolean check=true;
+		int dispoCourant;
+		LivrePanier livreCourant;
+		
+		for(int i=0;i<panier.livres.size();i++) {
+			livreCourant=panier.livres[i]
+			dispoCourant=livreCourant.nombreExemplairesDisponibles;
+			if(livreCourant.quantite<=dispoCourant) {
+				livreCourant.livre.reserver(livreCourant.quantite)
+			}
+			else {
+				if(dispoCourant!=0){
+					livreCourant.livre.reserver(dispoCourant)
+				}
+				check=false;
+			}
+		}
+		
+		check
+	}
+	
+	def remplirReservation(Reservation newReservation){
+		def panier = getPanier()
+		
+		for(int i=0;i<panier.livres.size();i++) {
+			for(int j=0;j<panier.livres[i].quantite;j++) {
+				newReservation.addToLivres(panier.livres[i].livre)
+			}
+		}
+		
+		newReservation.save()
+	}
 }

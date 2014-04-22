@@ -10,4 +10,9 @@ class Reservation {
     static constraints = {
 		code nullable : false 
     }
+	
+	void setCode(){
+		code=this.id
+	}
+	
 }

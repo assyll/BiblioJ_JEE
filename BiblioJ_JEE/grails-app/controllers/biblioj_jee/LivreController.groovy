@@ -190,4 +190,13 @@ class LivreController {
 		redirect(action: "show", id: livreInstance.id)
 	}
 	
+	def verifierPanier() {
+		boolean checked = panierService.verifierPanier()
+		if(checked) {
+			Reservation newReservation = new Reservation(date:new Date())
+			newReservation.setCode();
+			panierService.remplirReservation(newReservation)
+			redirect(action: "show", id: newReservation.id)
+		}
+	}
 }

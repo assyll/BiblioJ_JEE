@@ -29,7 +29,7 @@
 									<g:remoteLink action="updatePanier" controller="livre" 
 										params="${[id:(livrePanier.livre.id), value:(nbExemplairesPanier), oldValue:(livrePanier.quantite)]}"
 										update="panier"
-										onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
+										onComplete="Effect.Pulsate('panier', {pulses: 1, duration: 1.0});">
 										Mettre à Jour
 									</g:remoteLink>
 								</td>
@@ -37,7 +37,7 @@
 									<g:remoteLink action="removeAll" controller="livre"
 										params="${[id:(livrePanier.livre.id)]}"
 										update="panier"
-										onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
+										onComplete="Effect.Pulsate('panier', {pulses: 1, duration: 1.0});">
 										Supprimer
 									</g:remoteLink>
 								</td>
@@ -49,7 +49,7 @@
 			<div align="center">
 				<g:form controller="livre">
 					<g:hiddenField name="id" value="${livreInstance?.id}" />
-					<g:actionSubmit style="margin-left:35px" action="update" value="${message(code: 'default.button.reserver.label', default: 'Réserver')}" />
+					<g:actionSubmit style="margin-left:35px" action="verifierPanier" value="${message(code: 'default.button.reserver.label', default: 'Réserver')}" />
 					<g:actionSubmit style="margin-left:35px" action="viderPanier" value="${message(code: 'default.button.vider.label', default: 'Vider le Panier')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Voulez-vous vraiment vider votre panier?')}');" />
 				</g:form>
 			</div>

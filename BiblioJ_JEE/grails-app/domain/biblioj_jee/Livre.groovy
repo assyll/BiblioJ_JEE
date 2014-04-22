@@ -20,4 +20,7 @@ class Livre {
 		titre
 	}
 	
+	void reserver(Integer nbExemplairesDispo) {
+		nombreExemplairesDisponibles-=nbExemplairesDispo
+	}
 }
