@@ -88,9 +88,7 @@ class PanierService {
 		def panier = getPanier()
 		
 		for(livrePanier in panier.livres) {
-			for(int j=0;j<livrePanier.quantite;j++) {
-				newReservation.addToLivre(livrePanier.livre)
-			}
+			newReservation.addToLivre(livrePanier.livre)
 		}
 		
 		newReservation.save(flush:true)

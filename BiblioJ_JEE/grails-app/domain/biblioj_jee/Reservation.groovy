@@ -14,5 +14,4 @@ class Reservation {
 	void setCode(){
 		code=Reservation.count()+1
 	}
-	
 }

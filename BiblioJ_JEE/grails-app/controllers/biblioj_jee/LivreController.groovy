@@ -193,7 +193,7 @@ class LivreController {
 		boolean checked = panierService.verifierPanier()
 		if(checked) {
 			Reservation newReservation = new Reservation(reservation:new Date())
-			newReservation.setCode()
+			newReservation.setCode()			
 			panierService.remplirReservation(newReservation)
 			panierService.viderPanier()
 			redirect(action: "show", controller: "reservation", id: newReservation.id)
