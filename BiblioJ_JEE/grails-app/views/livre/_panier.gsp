@@ -23,15 +23,12 @@
 									${livrePanier.livre.toString()}
 								</td>
 								<td>
+									<g:form controller="livre" action="updatePanier" method="post" params="${[id:(livrePanier.livre.id),oldValue:(livrePanier.quantite)]}">
+									
 									<g:select name="nbExemplairesPanier" from="${1..livrePanier.quantite}" value="${livrePanier.quantite}"/>
-								</td>
-								<td>
-									<g:remoteLink action="updatePanier" controller="livre" 
-										params="${[id:(livrePanier.livre.id), value:(nbExemplairesPanier), oldValue:(livrePanier.quantite)]}"
-										update="panier"
-										onComplete="Effect.Pulsate('panier', {pulses: 1, duration: 1.0});">
-										Mettre à Jour
-									</g:remoteLink>
+									<g:submitButton name="miseAjours" value="mettreAjour" />
+						
+									</g:form>
 								</td>
 								<td>
 									<g:remoteLink action="removeAll" controller="livre"

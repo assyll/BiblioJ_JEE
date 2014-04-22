@@ -175,11 +175,12 @@ class LivreController {
 		}
 	}
 	
-	def updatePanier(Long id) {
-		def livreInstance = Livre.get(id)
-		if(params.oldValue && params.value && params.oldValue!=params.value) {
+	def updatePanier(Long id, int nbExemplairesPanier) {
+		def livreInstance = Livre.get(params.id)
+	if (params.oldValue && params.oldValue!= params.nbExemplairesPanier) {
 			println "Coucou"
-			panierService.removeFromPanier(livreInstance,params.oldValue-params.value)
+			println params.nbExemplairesPanier
+		 panierService.removeFromPanier(livreInstance,params.oldValue.toInteger()-params.nbExemplairesPanier.toInteger())
 		}
 		redirect(action: "show", id: livreInstance.id)
 	}
