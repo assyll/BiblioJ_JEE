@@ -26,11 +26,11 @@
 								</td>
 								<td>
 									<g:form controller="livre" action="updatePanier" method="post" params="${[id:(livrePanier.livre.id),oldValue:(livrePanier.quantite)]}">
-									
-									<g:select name="nbExemplairesPanier" from="${1..livrePanier.quantite}" value="${livrePanier.quantite}"/>
-									<g:submitButton name="miseAjours" value="Mettre à Jour" />
-									<g:actionSubmit action="removeAll" controller="livre"
-										params="${[id:(livrePanier.livre.id)]}" value="Supprimer"/>
+										<g:select name="nbExemplairesPanier" from="${1..livrePanier.quantite}" 
+											value="${livrePanier.quantite}"/>
+										<g:submitButton name="miseAjours" value="Mettre à Jour" />
+										<g:actionSubmit action="removeAll" controller="livre"
+											params="${[id:(livrePanier.livre.id)]}" value="Supprimer"/>
 									</g:form>
 								</td>
 							</tr>

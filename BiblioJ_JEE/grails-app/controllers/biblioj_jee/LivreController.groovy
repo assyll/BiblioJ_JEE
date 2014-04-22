@@ -199,7 +199,7 @@ class LivreController {
 			redirect(action: "show", controller: "reservation", id: newReservation.id)
 		}
 		else {
-			flash.message = "${message(code: 'default.not.found.message', default: 'Certains des livres du panier ne sont plus disponibles...Le panier a été mis à jour suivant les disponibilités.')}"
+			flash.message = "${message(code: 'default.livrePanier', default: 'Certains des livres du panier ne sont plus disponibles...Le panier a été mis à jour suivant les disponibilités.')}"
 		}
 	}
 }

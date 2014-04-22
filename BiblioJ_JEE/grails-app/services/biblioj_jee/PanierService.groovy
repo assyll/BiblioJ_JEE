@@ -73,7 +73,7 @@ class PanierService {
 			}
 			else {
 				if(dispoCourant!=0){
-					livrePanier.quantite=dispoCourant
+					panier.removeFromPanier(livrePanier.livre,livrePanier.quantite-dispoCourant)
 				}
 				else {
 					panier.removeFromPanier(livrePanier.livre,livrePanier.quantite)
