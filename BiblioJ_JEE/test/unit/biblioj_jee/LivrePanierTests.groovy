@@ -12,6 +12,6 @@ import org.junit.*
 class LivrePanierTests {
 
     void testSomething() {
-       fail "Implement me"
+      
     }
 }

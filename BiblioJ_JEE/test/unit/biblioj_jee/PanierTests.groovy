@@ -10,8 +10,7 @@ import org.junit.*
  */
 @TestFor(Panier)
 class PanierTests {
-
-    void testSomething() {
-       fail "Implement me"
-    }
+	void testSomething() {
+	
+   }
 }

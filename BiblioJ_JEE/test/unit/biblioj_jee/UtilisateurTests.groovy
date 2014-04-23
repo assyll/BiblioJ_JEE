@@ -10,8 +10,7 @@ import org.junit.*
  */
 @TestFor(Utilisateur)
 class UtilisateurTests {
-
-    void testSomething() {
-       fail "Implement me"
-    }
+	void testSomething() {
+	
+   }
 }

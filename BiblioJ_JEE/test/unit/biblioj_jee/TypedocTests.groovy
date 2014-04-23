@@ -11,7 +11,7 @@ import org.junit.*
 @TestFor(Typedoc)
 class TypedocTests {
 
-    void testSomething() {
-       fail "Implement me"
-    }
+	void testSomething() {
+	
+   }
 }

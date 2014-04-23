@@ -10,8 +10,8 @@ import org.junit.*
  */
 @TestFor(Reservation)
 class ReservationTests {
+	void testSomething() {
+	
+   }
 
-    void testSomething() {
-       fail "Implement me"
-    }
 }

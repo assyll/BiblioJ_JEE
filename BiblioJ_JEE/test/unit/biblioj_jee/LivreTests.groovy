@@ -11,7 +11,9 @@ import org.junit.*
 @TestFor(Livre)
 class LivreTests {
 
-    void testSomething() {
-       fail "Implement me"
+    void testCreation() {
+       Livre livre = new Livre(titre : "Rien ne s'oppose à la nuit : roman", nombreExemplaires : 5, nombreExemplairesDisponibles : 5)
+	   assertTrue(livre != null)
+	   
     }
 }

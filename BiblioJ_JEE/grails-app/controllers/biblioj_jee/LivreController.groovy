@@ -36,21 +36,34 @@ class LivreController {
 	}
 
 	def create() {
-		[livreInstance: new Livre(params)]
+			[livreInstance: new Livre(params)]
 	}
 
 	def save() {
-		def livreInstance = new Livre(params)
-		if (!livreInstance.save(flush: true)) {
-			render(view: "create", model: [livreInstance: livreInstance])
-			return
+		def livreInstance
+		
+		if(params.nombreExemplaires < params.nombreExemplairesDisponibles)
+		{
+			println params.nombreExemplairesDisponibles
+				livreInstance = new Livre(params)
+			
+			if (!livreInstance.save(flush: true)) {
+				render(view: "create", model: [livreInstance: livreInstance])
+				return
+			}
+	
+			flash.message = message(code: 'default.created.message', args: [
+				message(code: 'livre.label', default: 'Livre'),
+				livreInstance.id
+			])
+			redirect(action: "show", id: livreInstance.id)
 		}
-
-		flash.message = message(code: 'default.created.message', args: [
-			message(code: 'livre.label', default: 'Livre'),
-			livreInstance.id
-		])
-		redirect(action: "show", id: livreInstance.id)
+		else
+		{
+			livreInstance = null
+			flash.message = message(code: 'notcreated', default:"Echec de creation : le nombre d'exemplaires disponibles ne peut etre superieur au nombre d'exemplaires total du livre")
+			redirect(action: "create")
+		}
 	}
 
 	def show(Long id) {

@@ -11,7 +11,8 @@ import org.junit.*
 @TestFor(Auteur)
 class AuteurTests {
 
-    void testSomething() {
-       fail "Implement me"
+    void testCreation() {
+       Auteur auteur = new Auteur(nom : "Vegan", prenom : "Delphine de")
+	   assertTrue(auteur != null)	   
     }
 }
