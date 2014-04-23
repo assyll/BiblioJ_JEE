@@ -26,7 +26,9 @@ class LivreController {
 
 				if (params.queryAuteur) {
 					auteur {
+						
 						ilike("nom","%${params.queryAuteur}%")
+						
 					}
 				}
 			}

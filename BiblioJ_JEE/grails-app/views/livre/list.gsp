@@ -29,14 +29,16 @@
 					<div class="fieldcontain">
 						<label for="queryType"> Type :</label>
 						<g:textField name="queryType" value="${params.queryType}"/>
-						&nbsp&nbsp&nbsp&nbsp
-						<g:form action="list">
-							<g:submitButton name="submit" value="Rechercher"/>
-						</g:form>
+
 					</div>
 					<div class="fieldcontain">
 						<label for="queryAuteur"> Auteur :</label>
 						<g:textField name="queryAuteur" value="${params.queryAuteur}"/>
+					</div>
+					<div style="margin-left:250px ; margin-top:15px">
+						<g:form action="list">
+							<g:submitButton name="submit" value="Rechercher"/>
+						</g:form>
 					</div>
 				</g:form>
 			</fieldset>
