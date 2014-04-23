@@ -6,7 +6,7 @@ class BootStrap {
 	
 	def init = { servletContext ->
 		
-		/*Auteur auteur1 = new Auteur(
+	/*	Auteur auteur1 = new Auteur(
 			nom: 'King',
 			prenom: 'Stephen').save()
 		

@@ -10,9 +10,9 @@ import grails.test.mixin.*
 class ReservationControllerTests {
 
     def populateValidParams(params) {
-        assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        params["code"] = 1
+		params["reservation"] = new Date()
+		assert params != null
     }
 
     void testIndex() {
@@ -101,7 +101,7 @@ class ReservationControllerTests {
 
         // test invalid parameters in update
         params.id = reservation.id
-        //TODO: add invalid values to params object
+        params.code = null
 
         controller.update()
 

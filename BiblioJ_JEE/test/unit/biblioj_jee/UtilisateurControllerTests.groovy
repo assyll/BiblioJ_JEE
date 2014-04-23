@@ -10,9 +10,11 @@ import grails.test.mixin.*
 class UtilisateurControllerTests {
 
     def populateValidParams(params) {
-        assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        
+        params["nom"] = 'Lafon'
+		params["prenom"] = 'Victor'
+		params["email"] = 'metabolic42@gmail.com'
+		assert params != null
     }
 
     void testIndex() {
